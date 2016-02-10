@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :postquotes, only: [:index, :create, :new, :edit, :update, :destroy, :show] do
-    resources :comments, only: [:create, :new]
+    resources :comments, only: [:create]
   end
   resources :users, only: [:new, :create, :show]
   root 'postquotes#index'

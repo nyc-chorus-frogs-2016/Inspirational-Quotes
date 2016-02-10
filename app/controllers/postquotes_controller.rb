@@ -41,6 +41,7 @@ class PostquotesController < ApplicationController
 
 	def show
 		@postquote = Postquote.find_by(id: params[:id])
+		@comment = Comment.new
 	end
 
 	private
