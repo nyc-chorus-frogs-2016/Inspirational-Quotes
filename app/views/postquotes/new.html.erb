@@ -1,0 +1,17 @@
+<%= form_for [@postquote] do |f| %>
+<fieldset>
+  <legend>Add a quote!: </legend>
+  	<div>
+    <%= f.label :title %>
+    <%= f.text_area :title %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+</fieldset>
+<% end %>
