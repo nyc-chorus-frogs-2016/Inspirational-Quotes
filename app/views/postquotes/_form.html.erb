@@ -1,0 +1,17 @@
+<% if @postquote.errors.any? %>
+  <ul>
+    <% @postquote.errors.full_messages.each do |msg| %>
+       <li class="error"><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @postquote do |f| %>
+  <% [:title, :content].each do |field|  %>
+    <div>
+      <%= f.label field %>
+      <%= f.text_field field %>
+    </div>
+  <% end %>
+  <%= f.submit %>
+<% end %>

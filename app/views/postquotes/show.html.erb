@@ -1,0 +1,28 @@
+<div id='background-image'>
+<h1><%=@postquote.title%></h1>
+
+<%= @postquote.title%>
+<%= @postquote.content%>
+
+
+<h3>Add a Comment</h3>
+<%= form_for [@postquote, @comment] do |f| %>
+<div>
+	<%= f.label :content %>
+	<%= f.text_field :content %>
+</div>
+<div>
+	<%= f.submit %>
+</div>
+<% end %>
+
+<h2> Comments</h2>
+<ul>
+	<% @postquote.comments.each do |comment| %>
+	<%= comment.content%>
+	<li>-submitted by:<%= comment.user.username%></li>
+
+</ul>
+
+<%end%>
+</div>

@@ -1,0 +1,11 @@
+<h1> Here are all of the current inspirational quotes! </h1>
+<ul>
+	<% @postquotes.each do |postquote| %>
+	<li><%= link_to postquote.title, "/postquotes/#{postquote.id}"%>
+		<% if postquote.creator == current_user%>
+		<%= link_to 'Edit', edit_postquote_path(postquote.id)%>
+		<%= link_to 'Delete', postquote_path(postquote.id), method: :delete%></li>
+		<%end%>
+		<%end%>
+	</ul>
+	<%= link_to 'Submit a quote', new_postquote_path%> 
