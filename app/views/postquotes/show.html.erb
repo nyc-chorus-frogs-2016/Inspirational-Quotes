@@ -1,0 +1,12 @@
+<h1><%=@postquote.title%></h1>
+
+<%= @postquote.title%>
+<%= @postquote.content%>
+
+<h2> Comments</h2>
+<ul>
+<% @postquote.comments.each do |comment| %>
+<%= comment.content%>
+<li>-submitted by:<%= comment.user.username%></li>
+<%end%>
+</ul>
