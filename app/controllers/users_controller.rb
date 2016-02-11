@@ -10,7 +10,7 @@ skip_before_action :ensure_current_user
     if @user.save
       flash[:notice] = "Thanks #{@user.username}! Your account has been created!"
       log_in(@user)
-      redirect_to topics_path
+      redirect_to root_path
     else
       render :new
     end

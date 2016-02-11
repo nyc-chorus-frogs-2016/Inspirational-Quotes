@@ -40,12 +40,23 @@ class PostquotesController < ApplicationController
 	end
 
 	def show
+		load_wallpaper
 		@postquote = Postquote.find_by(id: params[:id])
 		@comment = Comment.new
 	end
 
 	private
+
+
+
 	def postquote_params
- 		params.require(:postquote).permit(:title, :content).merge(creator: current_user)
+		params.require(:postquote).permit(:title, :content).merge(creator: current_user)
+	end
+
+	def load_wallpaper
+		url = "http://wall.alphacoders.com/api2.0/get.php?auth=27ab91f0734eebf75a719bb7ab53d19e&method=category&id=2&info_level=2"
+		response = HTTParty.get(url)
+		parsed = response.parsed_response
+		@wallpaper_url = parsed["wallpapers"].sample["url_image"]
 	end
 end
